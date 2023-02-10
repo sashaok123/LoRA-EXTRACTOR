@@ -5,9 +5,11 @@
 
 import math
 import os
+from typing import List
 import torch
 
-import train_util
+from library import train_util
+
 
 class LoRAModule(torch.nn.Module):
   """
@@ -97,7 +99,7 @@ class LoRANetwork(torch.nn.Module):
     self.alpha = alpha
 
     # create module instances
-    def create_modules(prefix, root_module: torch.nn.Module, target_replace_modules) -> list[LoRAModule]:
+    def create_modules(prefix, root_module: torch.nn.Module, target_replace_modules) -> List[LoRAModule]:
       loras = []
       for name, module in root_module.named_modules():
         if module.__class__.__name__ in target_replace_modules:

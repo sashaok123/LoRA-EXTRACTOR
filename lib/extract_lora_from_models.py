@@ -1,13 +1,13 @@
 # extract approximating LoRA by svd from two SD models
 # The code is based on https://github.com/cloneofsimo/lora/blob/develop/lora_diffusion/cli_svd.py
-# Thanks to cloneofsimo! 
+# Thanks to cloneofsimo!
 
 import argparse
 import os
 import torch
 from safetensors.torch import load_file, save_file
 from tqdm import tqdm
-import model_util as model_util
+import library.model_util as model_util
 import lora
 
 

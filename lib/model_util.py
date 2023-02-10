@@ -16,7 +16,7 @@ BETA_END = 0.0120
 UNET_PARAMS_MODEL_CHANNELS = 320
 UNET_PARAMS_CHANNEL_MULT = [1, 2, 4, 4]
 UNET_PARAMS_ATTENTION_RESOLUTIONS = [4, 2, 1]
-UNET_PARAMS_IMAGE_SIZE = 32  # unused
+UNET_PARAMS_IMAGE_SIZE = 64  # fixed from old invalid value `32`
 UNET_PARAMS_IN_CHANNELS = 4
 UNET_PARAMS_OUT_CHANNELS = 4
 UNET_PARAMS_NUM_RES_BLOCKS = 2
@@ -1163,15 +1163,14 @@ def make_bucket_resolutions(max_reso, min_size=256, max_size=1024, divisible=64)
 
   resos = list(resos)
   resos.sort()
-
-  aspect_ratios = [w / h for w, h in resos]
-  return resos, aspect_ratios
+  return resos
 
 
 if __name__ == '__main__':
-  resos, aspect_ratios = make_bucket_resolutions((512, 768))
+  resos = make_bucket_resolutions((512, 768))
   print(len(resos))
   print(resos)
+  aspect_ratios = [w / h for w, h in resos]
   print(aspect_ratios)
 
   ars = set()
