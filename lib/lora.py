@@ -8,7 +8,7 @@ import os
 from typing import List
 import torch
 
-from library import train_util
+import train_util
 
 
 class LoRAModule(torch.nn.Module):
