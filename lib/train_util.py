@@ -28,7 +28,7 @@ from einops import rearrange
 from torch import einsum
 import safetensors.torch
 
-import library.model_util as model_util
+import train_util
 
 # Tokenizer: checkpointから読み込むのではなくあらかじめ提供されているものを使う
 TOKENIZER_PATH = "openai/clip-vit-large-patch14"
